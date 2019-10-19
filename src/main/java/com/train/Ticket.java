@@ -10,8 +10,13 @@ public class Ticket {
     }
 
     public int cal(){
+    int cal = (int) ((run1-run2)*1000+(run2*2000)*0.9);
+    return cal;
+}
+
+/*    public int cal(){
         double cal = (run1-run2)*1000 + (run2*2000)*0.9;
         int ical = (int) cal;
         return ical;
-    }
+    }*/
 }
