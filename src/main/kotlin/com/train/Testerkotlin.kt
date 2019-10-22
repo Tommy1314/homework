@@ -1,29 +1,31 @@
 package com.train
 
-import java.util.*
-
 fun main() {
-    val scanner = Scanner(System.`in`)  /* System.in = input */
-    print("Please enter number of tickets: ")
-    var run1 = scanner.nextInt()
-    print("How many round-trip tickets: ")
-    var run2 = scanner.nextInt()
-    var t = Tickets (run1, run2)
-    println("Total tickets: $run1")
-    println("Round-trip: $run2")
-    println("Total Cost: " + t.cal())
-//    println("Total Cost: " + t.cal().toInt())
+    var run1:Int
+    var run2:Int
+    do {
+        print("Please enter number of tickets: ")
+        run1 = readLine()!!.toInt()
+        if (run1 != -1) {
+            print("How many round-trip tickets: ")
+            run2 = readLine()!!.toInt()
+            var t = Tickets(run1, run2)
+            t.print()
+        }
+    }
+        while (run1 != -1)
+    println("Stop and Finish")
 }
 
 class Tickets(var run1:Int, var run2:Int){
-    fun cal():Int {
-        var cal:Int = ((run1-run2)*1000 + (run2*2000)*0.9).toInt()
-        return cal
+    fun print(){
+        println("Total tickets: $run1")
+        println("Round-trip: $run2")
+        println("Total Cost: ${cal()}")
+        println(" ")
     }
+    fun cal():Int = ((run1 - run2) * 1000 + (run2 * 2000) * 0.9).toInt()
 
-/*    class Tickets(var run1:Int, var run2:Int){
-        fun cal():Double {
-            var cal:Double = (run1 - run2) * 1000 + (run2 * 2000) * 0.9
-            return cal
-        }*/
+
+
 }
